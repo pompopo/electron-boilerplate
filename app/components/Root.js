@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect, createStore } from 'react-redux'
-import { increment, decrement } from '../actions/counter'
+import { increment, decrement, async_increment } from '../actions/counter'
 
 export default class Root extends React.Component {
   render() {
@@ -9,7 +9,7 @@ export default class Root extends React.Component {
         <div>count = {this.props.count}</div>
         <button onClick={this.props.increment}>Increment</button>
         <button onClick={this.props.decrement}>Decrement</button>
-
+        <button onClick={this.props.async_increment}>Async Increment</button>
       </div>
     )
   }
@@ -26,6 +26,7 @@ function mapDispatchToProps(dispatch) {
   return {
     increment: () => dispatch(increment()),
     decrement: () => dispatch(decrement()),
+    async_increment: () => dispatch(async_increment()),
   };
 }
 
